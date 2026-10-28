@@ -1,24 +1,39 @@
 RESPONSI 1 PRAKTIKUM PEMROGRAMAN BERORIENTASI OBJEK
-Sistem Logistik Pendidikan Daerah 3T
+SISTEM LOGISTIK PENDIDIKAN DAERAH 3T
 
-IDENTITAS
-Nama : Deni Septiawan
-NIM  : L0325020
+Nama: Deni Septiawan
+NIM : L0325020
 
-ISI PROYEK
-src/BarangBantuan.java          : class entitas data barang bantuan
-src/BeratInvalidException.java : custom exception untuk berat tidak valid
-src/MainLogistik.java          : menu, validasi input, perhitungan, dan ekspor manifes
-manifest_pengiriman.txt        : contoh manifes hasil pengujian
+GAMBARAN PROGRAM
+Program Sistem Logistik Pendidikan Daerah 3T digunakan untuk mencatat barang bantuan
+pendidikan yang akan dikirim ke sekolah-sekolah di daerah 3T. Pengguna dapat memasukkan
+kode, nama, kategori, dan berat setiap barang melalui menu di konsol.
 
-CARA MENJALANKAN DENGAN JDK
-1. Buka terminal pada folder Responsi1_Logistik.
-2. Kompilasi semua file Java:
-   javac -d out src/*.java
-3. Jalankan program:
-   java -cp out MainLogistik
-4. Pilih menu 1 untuk menambahkan barang. Ulangi jika ingin menambah barang lain.
-5. Pilih menu 2 untuk menyelesaikan pendataan dan membuat manifest_pengiriman.txt.
+Setiap barang harus memiliki kode yang diawali "EDX-" dan berat lebih dari 0 kg. Jika data
+tidak sesuai atau berat bukan angka, program menampilkan pesan kesalahan dan meminta
+pengguna mengisi data kembali. Barang yang valid disimpan dalam daftar selama program
+berjalan.
 
-File manifest_pengiriman.txt disimpan pada folder kerja tempat program dijalankan.
-Jika program dijalankan dari folder proyek, file manifes dibuat di folder proyek tersebut.
+Setelah pendataan selesai, program menghitung jumlah barang dan total berat seluruh muatan.
+Jika total berat kurang dari 50 kg, armada yang dipilih adalah Mobil Pickup. Jika total berat
+mencapai atau melebihi 50 kg, armada yang dipilih adalah Truk Ekspedisi.
+
+Data barang dan ringkasan pengiriman kemudian ditulis ke file manifest_pengiriman.txt.
+File manifes berisi daftar barang, jumlah barang, total berat, dan jenis armada.
+
+BERKAS PROGRAM
+- src/BarangBantuan.java
+  Menyimpan informasi setiap barang bantuan dan memeriksa validitas datanya.
+
+- src/BeratInvalidException.java
+  Menangani kondisi ketika berat barang tidak valid.
+
+- src/MainLogistik.java
+  Menjalankan menu, menerima input, menyimpan daftar barang, menghitung muatan,
+  menentukan armada, dan membuat file manifes.
+
+- manifest_pengiriman.txt
+  Contoh dokumen manifes yang dihasilkan oleh program.
+
+Program ini menerapkan konsep class dan object, constructor, tipe data, percabangan,
+perulangan, ArrayList, exception handling, serta File I/O dalam satu aplikasi konsol sederhana.
